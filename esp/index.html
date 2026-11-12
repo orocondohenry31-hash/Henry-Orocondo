@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <title>Carta para alguien especial.</title>
+  <link rel="stylesheet" href="css/estilo.css">
+  <link href="https://fonts.googleapis.com/css2?family=Caveat:wght@500;700&family=Quicksand:wght@500;700&display=swap"
+    rel="stylesheet">
+</head>
+
+<body>
+  <svg width="0" height="0" style="position:absolute" aria-hidden="true">
+    <defs>
+      <linearGradient id="hg" x1="0" y1="0" x2="1" y2="1">
+        <stop offset="0" stop-color="#ff8fb0" />
+        <stop offset="1" stop-color="#e8244f" />
+      </linearGradient>
+      <symbol id="flower" viewBox="0 0 100 180">
+        <!-- Tallo curvo y hojas con nervaduras -->
+        <path class="stem" d="M50 66 C47 100 55 137 49 178" stroke="var(--leaf)" stroke-width="4.5" fill="none"
+          stroke-linecap="round" />
+        <path class="leaf" fill="var(--leaf)" d="M49 126 C28 105 13 111 12 96 C31 94 44 106 49 126Z" />
+        <path d="M46 121 Q31 106 17 101" stroke="#ffffff70" stroke-width="1.5" fill="none" />
+        <path class="leaf" fill="var(--leaf)" d="M51 145 C68 121 84 127 88 111 C68 108 55 124 51 145Z" />
+        <path d="M55 139 Q70 121 83 116" stroke="#ffffff70" stroke-width="1.5" fill="none" />
+        <!-- Flor de pétalos dobles -->
+        <g class="petals" fill="var(--p)">
+          <ellipse cx="50" cy="31" rx="12" ry="25" />
+          <ellipse cx="50" cy="31" rx="12" ry="25" transform="rotate(36 50 51)" />
+          <ellipse cx="50" cy="31" rx="12" ry="25" transform="rotate(72 50 51)" />
+          <ellipse cx="50" cy="31" rx="12" ry="25" transform="rotate(108 50 51)" />
+          <ellipse cx="50" cy="31" rx="12" ry="25" transform="rotate(144 50 51)" />
+          <ellipse cx="50" cy="31" rx="9" ry="19" opacity=".72" transform="rotate(18 50 51)" />
+          <ellipse cx="50" cy="31" rx="9" ry="19" opacity=".72" transform="rotate(90 50 51)" />
+          <ellipse cx="50" cy="31" rx="9" ry="19" opacity=".72" transform="rotate(162 50 51)" />
+        </g>
+        <circle cx="50" cy="51" r="11" fill="#e6a83e" />
+        <circle cx="50" cy="51" r="7.5" fill="#ffd978" />
+        <g fill="#fff4c4">
+          <circle cx="46" cy="48" r="1.5" /><circle cx="54" cy="49" r="1.3" />
+          <circle cx="49" cy="54" r="1.2" /><circle cx="55" cy="54" r="1" />
+        </g>
+      </symbol>
+      <symbol id="dog" viewBox="0 0 100 100">
+        <defs>
+          <linearGradient id="sky" x1="0" y1="0" x2="0" y2="1">
+            <stop offset="0" stop-color="#bfe3ff" />
+            <stop offset="1" stop-color="#ffd6e4" />
+          </linearGradient>
+        </defs>
+        <rect width="100" height="100" fill="url(#sky)" />
+        <path d="M14 16 q3 -6 6 0 q3 -6 6 0 q0 6 -6 10 q-6 -4 -6 -10z" fill="#ff7aa0" />
+        <path d="M80 70 q3 -6 6 0 q3 -6 6 0 q0 6 -6 10 q-6 -4 -6 -10z" fill="#ff9ebb" />
+        <ellipse cx="22" cy="48" rx="11" ry="24" fill="#2b2b2b" transform="rotate(12 22 48)" />
+        <ellipse cx="78" cy="48" rx="11" ry="24" fill="#2b2b2b" transform="rotate(-12 78 48)" />
+        <ellipse cx="50" cy="54" rx="29" ry="31" fill="#fff" stroke="#2b2b2b" stroke-width="2" />
+        <circle cx="40" cy="48" r="3.4" fill="#2b2b2b" />
+        <circle cx="60" cy="48" r="3.4" fill="#2b2b2b" />
+        <circle cx="41" cy="47" r="1" fill="#fff" />
+        <circle cx="61" cy="47" r="1" fill="#fff" />
+        <ellipse cx="50" cy="62" rx="7" ry="5" fill="#2b2b2b" />
+        <path d="M43 70 Q50 77 57 70" stroke="#2b2b2b" stroke-width="2" fill="none" stroke-linecap="round" />
+        <circle cx="33" cy="60" r="5" fill="#ff9ebb" opacity=".6" />
+        <circle cx="67" cy="60" r="5" fill="#ff9ebb" opacity=".6" />
+        <path d="M62 22 q4 -8 8 0 q4 -8 8 0 q0 8 -8 14 q-8 -6 -8 -14z" fill="#e8456b" />
+      </symbol>
+    </defs>
+  </svg>
+
+  <div class="aur" aria-hidden="true"><i></i><i></i><i></i></div>
+  <div class="stars" id="stars" aria-hidden="true"></div>
+  <div id="petals" aria-hidden="true"></div>
+  <div id="hearts" aria-hidden="true"></div>
+  <div id="fx" aria-hidden="true"></div>
+
+  <div class="tools">
+    <button id="music" type="button" aria-label="Activar o pausar la música">🎵</button>
+    <button id="song" type="button" aria-label="Cambiar la canción por una de tu dispositivo">📁</button>
+    <button id="theme" type="button" aria-label="Cambiar entre modo claro y oscuro">🌙</button>
+    <button id="reset" type="button" aria-label="Borrar cambios y restablecer">↺</button>
+  </div>
+  <input type="file" id="file" accept="image/*" hidden>
+  <input type="file" id="songfile" accept="audio/*" hidden>
+
+  <main id="app">
+    <div class="slot cover" aria-label="Imagen de portada">
+      <img src="img/portada.jpg" alt="Fotografía de portada">
+    </div>
+    <h1 data-save="title" contenteditable="true" spellcheck="false">Dedicada a la persona que amo.</h1>
+    <p class="sub" data-save="sub" contenteditable="true" spellcheck="false">Con mucho cariño, para mi amada, de parte de Henry Orocondo.</p>
+
+    <button class="env" id="envBtn" type="button" aria-label="Abrir la carta">
+      <span class="body"></span><span class="flap"></span><span class="seal">♥</span><span class="hint">Toca para
+        abrir</span>
+    </button>
+
+    <section class="letter" aria-live="polite">
+      <div class="paper">
+        <div class="corner"><button class="slot" data-slot="2" type="button"
+            aria-label="Cambiar la imagen de la carta"><svg viewBox="0 0 100 100">
+              <use href="#dog" />
+            </svg></button></div>
+        <p class="to">Para: <span data-save="to" contenteditable="true" spellcheck="false">mi amada srta. anabel</span></p>
+        <div class="msg" data-save="msg" contenteditable="true" spellcheck="false">
+          <p>Quería escribirte algo diferente, algo que no fueran solamente palabras simples, sino una pequeña parte de lo que siento.</p>
+          <p>A veces me pongo a pensar en lo bonito que es, que alguien puede cambiar un día entero con 
+            una sonrisa, hacer que los momentos más sencillos se conviertan en algo especial.</p>
+          <p>Quiero que sepas que eres una persona increíble.
+             Admiro tu forma de ser, tu sonrisa y esa luz tan tuya que hace que todo sea aún más bonito.</p>
+          <p>No sé qué nos tenga preparado el destino, ni qué caminos nos toque avanzar o desafíos que superar pero hay algo que tengo claro, me gustaría seguir compartiendo
+             momentos contigo, volver a tener momentos únicos e inolvidables, siendo honestos con nosotros mismos, volver a reír juntos y si la vida nos da la oportunidad, escribir una nueva historia aún más bonita
+              que la que alguna vez imaginamos.</p>
+          <p>No te prometo un mundo perfecto, pero si algo auténtico y sincero, dando siempre lo máximo de mi, por nosotros y quiero que sepas que, si volvemos a caminar juntos de la mano, me gustaría hacerlo con mucho más amor, más paciencia,
+             más comprensión y con las ganas de cuidar lo bonito que existe entre nosotros.</p>
+          <p>Nunca olvides lo especial que eres para mí. No necesitas hacer algo extraordinario para merecer cariño, simplemente siendo tú ya tienes una
+             manera muy linda de ocupar un lugar en mi corazón.</p>
+          <p>Si pudiera pedir un deseo, sería tener la oportunidad de volver a mirarte a los ojos, abrazarte más fuerte y recordarte lo mucho que significas para mí.</p>
+          <p>Te amo mucho❤️, y deseo de corazón, es que la vida todavía nos tenga preparado muchos momentos bonitos juntos.</p>
+        </div>
+        <p class="from">Con todo el amor y cariño que siento por ti <span data-save="from" contenteditable="true" spellcheck="false">de parte de henry</span> ♥
+        </p>
+        <p class="edit">Toca para responder a la persona que amas (envia captura). att. el amor de tu vida Henry</p>
+      </div>
+
+      <div class="ask">
+        <h2 data-save="ask" contenteditable="true" spellcheck="false">¿Quieres seguir escribiendo esta historia conmigo?
+        </h2>
+        <div class="btns">
+          <button class="b yes" id="yes" type="button">Sí</button>
+          <button class="b no" id="no" type="button">No</button>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <div class="ov" role="dialog" aria-label="Respuesta">
+    <div class="card">
+      <button class="slot" data-slot="3" type="button" aria-label="Cambiar la imagen del final"><svg
+          viewBox="0 0 100 100">
+          <use href="#dog" />
+        </svg></button>
+      <svg class="big" viewBox="0 0 32 29" aria-hidden="true">
+        <path
+          d="M23.6 0c-3 0-5.4 1.5-7.6 4.2C13.8 1.5 11.4 0 8.4 0 3.6 0 0 3.6 0 8.4c0 9.4 16 20.6 16 20.6s16-11.2 16-20.6C32 3.6 28.4 0 23.6 0z"
+          fill="url(#hg)" />
+      </svg>
+      <h3 data-save="yesmsg" contenteditable="true" spellcheck="false">¡Sabía que dirías que sí!</h3>
+      <div class="now" id="now"><span class="eq"><i></i><i></i><i></i></span><span id="songname">Musica de fondo</span></div>
+      <div><button class="b yes" id="close" type="button" style="animation:none">Volver a la carta</button></div>
+    </div>
+  </div>
+
+  <div class="garden" id="garden" aria-hidden="true"></div>
+
+  <script src="js/codigo.js"></script>
+</body>
+
+</html>
